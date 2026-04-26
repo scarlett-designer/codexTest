@@ -1,0 +1,3 @@
+# Generated design token artifacts
+/dist/*.css
+/dist/*.resolved.json

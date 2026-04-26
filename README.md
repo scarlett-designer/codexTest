@@ -9,7 +9,7 @@ Design Token MVP for a Figma + Token Studio + Git workflow.
 - Two visual versions:
   - V1: `tokens/tokens.json` (current MVP)
   - V2: `tokens/tokens-v2.json` (selected direction)
-- Output formats:
+- Output formats (generated at build time):
   - `dist/*.css` (CSS custom properties)
   - `dist/*.resolved.json` (alias-resolved flat map)
 
@@ -20,9 +20,10 @@ Design Token MVP for a Figma + Token Studio + Git workflow.
 - `scripts/build_tokens.py`: validation + build script
 - `examples/token-preview.html`: V1 vs V2 visual comparison page
 - `index.html`: B version(V2) single-page preview for deployment
-- `vercel.json`: Vercel routing config
+- `vercel.json`: Vercel routing/build config
+- `package.json`: Vercel build script entry
 - `.github/workflows/tokens-ci.yml`: CI trigger and checks
-- `dist/*`: generated artifacts
+- `dist/*`: generated artifacts (git ignored)
 
 ## Local usage
 
@@ -54,19 +55,24 @@ Open deployment target(B version):
 
 ## Vercel deploy (B version)
 
-1. Build V2 tokens
+1. Vercel build runs automatically with:
 
 ```bash
-python3 scripts/build_tokens.py --build --input tokens/tokens-v2.json
+npm run build
 ```
 
-2. Deploy to Vercel (CLI)
+2. Deploy to Vercel (CLI):
 
 ```bash
 vercel --prod
 ```
 
-Vercel serves `index.html` at `/` and uses `dist/tokens-v2.css` for styling.
+Vercel serves `index.html` at `/` and generates `dist/tokens-v2.css` during build.
+
+## Conflict strategy
+
+- Generated artifacts in `dist/` are git-ignored to reduce merge conflicts.
+- Token source files (`tokens/*.json`) are the only files that should be manually edited.
 
 ## CI behavior
 

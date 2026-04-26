@@ -1,0 +1,10 @@
+{
+  "name": "design-token-mvp",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build:tokens:v1": "python3 scripts/build_tokens.py --build --input tokens/tokens.json",
+    "build:tokens:v2": "python3 scripts/build_tokens.py --build --input tokens/tokens-v2.json",
+    "build": "npm run build:tokens:v2"
+  }
+}
