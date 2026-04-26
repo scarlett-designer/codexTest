@@ -1,0 +1,29 @@
+:root {
+  --color-bg-primary: #0F766E;
+  --color-bg-surface: #F8FAFC;
+  --color-border-default: #94A3B8;
+  --color-text-default: #0B1220;
+  --color-text-inverse: #F8FAFC;
+  --component-button-primary-bg: #0F766E;
+  --component-button-primary-paddingX: 1.125rem;
+  --component-button-primary-paddingY: 0.625rem;
+  --component-button-primary-radius: 0.625rem;
+  --component-button-primary-text: #F8FAFC;
+  --component-input-default-bg: #F8FAFC;
+  --component-input-default-border: #94A3B8;
+  --component-input-default-paddingX: 1.125rem;
+  --component-input-default-paddingY: 0.625rem;
+  --component-input-default-radius: 0.375rem;
+  --component-input-default-text: #0B1220;
+  --radius-md: 0.625rem;
+  --radius-sm: 0.375rem;
+  --space-2: 0.625rem;
+  --space-4: 1.125rem;
+  --space-6: 1.75rem;
+  --typography-fontFamily: Pretendard, Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --typography-fontSize-lg: 1.25rem;
+  --typography-fontSize-md: 1rem;
+  --typography-fontSize-sm: 0.875rem;
+  --typography-fontWeight-regular: 400;
+  --typography-fontWeight-semibold: 600;
+}
