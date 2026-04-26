@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design System B Version</title>
+    <link rel="stylesheet" href="/dist/tokens-v2.css" />
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #e2e8f0;
+        padding: 24px;
+      }
+      .panel {
+        width: min(560px, 100%);
+        background: var(--color-bg-surface);
+        color: var(--color-text-default);
+        border: 1px solid var(--color-border-default);
+        border-radius: 16px;
+        padding: 24px;
+        font-family: var(--typography-fontFamily);
+        box-shadow: 0 8px 20px rgb(15 23 42 / 0.08);
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: var(--typography-fontSize-lg);
+      }
+      p {
+        margin: 0 0 16px;
+        color: #475569;
+      }
+      .btn {
+        border: none;
+        border-radius: var(--component-button-primary-radius);
+        background: var(--component-button-primary-bg);
+        color: var(--component-button-primary-text);
+        padding: var(--component-button-primary-paddingY) var(--component-button-primary-paddingX);
+        font-weight: var(--typography-fontWeight-semibold);
+        cursor: pointer;
+      }
+      .input {
+        width: 100%;
+        margin-top: 12px;
+        border: 1px solid var(--component-input-default-border);
+        border-radius: var(--component-input-default-radius);
+        background: var(--component-input-default-bg);
+        color: var(--component-input-default-text);
+        padding: var(--component-input-default-paddingY) var(--component-input-default-paddingX);
+        font-size: var(--typography-fontSize-md);
+      }
+      .badge {
+        display: inline-block;
+        margin-bottom: 12px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--color-bg-primary) 15%, white);
+        color: var(--color-bg-primary);
+        font-size: var(--typography-fontSize-sm);
+        font-weight: var(--typography-fontWeight-semibold);
+      }
+    </style>
+  </head>
+  <body>
+    <section class="panel">
+      <span class="badge">B Version</span>
+      <h1>Design System MVP - V2</h1>
+      <p>Vercel 배포용 단일 미리보기 화면입니다.</p>
+      <button class="btn">Primary Action</button>
+      <input class="input" placeholder="이메일을 입력하세요" />
+    </section>
+  </body>
+</html>
