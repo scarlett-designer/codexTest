@@ -1,0 +1,51 @@
+name: tokens-ci
+
+on:
+  pull_request:
+    paths:
+      - 'tokens/**/*.json'
+      - 'scripts/build_tokens.py'
+      - 'examples/token-preview.html'
+      - '.github/workflows/tokens-ci.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'tokens/**/*.json'
+      - 'scripts/build_tokens.py'
+      - 'examples/token-preview.html'
+      - '.github/workflows/tokens-ci.yml'
+
+jobs:
+  validate-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate and build V1 tokens
+        run: |
+          python scripts/build_tokens.py --check --input tokens/tokens.json
+          python scripts/build_tokens.py --build --input tokens/tokens.json
+
+      - name: Validate and build V2 tokens
+        run: |
+          python scripts/build_tokens.py --check --input tokens/tokens-v2.json
+          python scripts/build_tokens.py --build --input tokens/tokens-v2.json
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: design-tokens
+          path: |
+            dist/tokens.css
+            dist/tokens.resolved.json
+            dist/tokens-v2.css
+            dist/tokens-v2.resolved.json
+            examples/token-preview.html
